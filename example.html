@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>JSONFormater</title>
+  <script src="./JSONFormatter.js"></script>
+</head>
+<body>
+<style>
+.left {
+    float: left;
+}
+
+.areaClass {
+    width: 448px;
+    height: 500px;
+    overflow-y:auto;
+    overflow-x:none;
+    border: 2px ridge #CCCCCC;
+    margin : 20px 0px 0px 2px;
+    border-radius: 7px; 
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    padding: 10px; 
+    font-size: 10px;
+}
+
+.formatClass {
+    margin-top: 80px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+h1, h3 {
+    margin: 2px;
+}
+</style>
+
+<script>
+function format() {
+	var srcJSON = document.getElementById("src").value;
+	var formatJSON = JSONFormatter.format(srcJSON);
+	document.getElementById("dest").value = formatJSON;
+}			
+</script>
+	<h1>This is a JSON format tools</h1>
+	<div>
+		<div class="left">
+			<h3>JSON String</h3>
+			<textarea id="src" class="areaClass">
+{"customerStore":null,"dir":"desc","pageSize":20,"records":[{"chassis_height":null,"start_unit":null,"individual_power_supply_status":"","cmm_ip":null,"individual_fan_status":"Fan 1: ;Fan 2: ;Fan 3: OK;Fan 4: OK;Fan 5: ;Fan 6: ;Fan 7: ;Fan 8: OK;Fan 9: OK;Fan 10: ;","power_in_use":1554.0000,"model":"HC1","power_supplies_status":"OK","total_power":12525.0000,"cmm_status":"Warning","cmm_hostname":"MM5CF3FC25DE5F","rack_number":"rack2","chassisName":"ibmchassis","nodes":null,"firmware_version":"2PET15O","temperature":40.0000,"health_status":"Critical","fan_modules_status":"Fault","type":"8721","description":null,"chassis_console":null},{"chassis_height":null,"start_unit":null,"individual_power_supply_status":null,"cmm_ip":null,"individual_fan_status":null,"power_in_use":null,"model":null,"power_supplies_status":null,"total_power":null,"cmm_status":null,"cmm_hostname":null,"rack_number":null,"chassisName":"__Chassis_IBM_Flex_chassis","nodes":null,"firmware_version":null,"temperature":null,"health_status":null,"fan_modules_status":null,"type":null,"description":null,"chassis_console":null},{"chassis_height":null,"start_unit":null,"individual_power_supply_status":null,"cmm_ip":null,"individual_fan_status":null,"power_in_use":null,"model":null,"power_supplies_status":null,"total_power":null,"cmm_status":null,"cmm_hostname":null,"rack_number":null,"chassisName":"chassis2","nodes":null,"firmware_version":null,"temperature":null,"health_status":null,"fan_modules_status":null,"type":null,"description":null,"chassis_console":null},{"chassis_height":null,"start_unit":null,"individual_power_supply_status":null,"cmm_ip":null,"individual_fan_status":null,"power_in_use":null,"model":null,"power_supplies_status":null,"total_power":null,"cmm_status":null,"cmm_hostname":null,"rack_number":null,"chassisName":"chassis1","nodes":null,"firmware_version":null,"temperature":null,"health_status":null,"fan_modules_status":null,"type":null,"description":null,"chassis_console":null}],"returnMsgs":{"failure":[],"success":[]},"sort":"chassisName","startIndex":0,"totalRecords":4}
+			</textarea>
+		</div>
+		<button class="formatClass left" id="format" onclick="format()">Format</button>
+		<div class="left">
+			<h3>Format Result</h3>
+			<textarea id="dest" class="areaClass">
+			</textarea>
+		</div>
+	</div>
+	
+</body>
+</html>
